@@ -157,6 +157,7 @@ TRANSLATIONS = {
         "nav_partners": "Tərəfdaşlar",
         "nav_contact": "Əlaqə",
         "cta_nav": "Təklif al",
+        "wa_prefill": "Salam! Yük daşınması ilə bağlı sorğum var.",
 
         "hero_title": "Yükləriniz üçün sürətli və ağıllı logistika",
         "hero_subtitle": "Məhsullarınızı istənilən vaxtda birbaşa istənilən nöqtəyə quru yolu ilə təhlükəsiz daşıyırıq. Azərbaycan, Gürcüstan, Rusiya, Avropa, Türkiyə və daha çox.",
@@ -225,6 +226,7 @@ TRANSLATIONS = {
         "nav_partners": "Партнёры",
         "nav_contact": "Контакты",
         "cta_nav": "Получить расчёт",
+        "wa_prefill": "Здравствуйте! У меня вопрос по грузоперевозке.",
 
         "hero_title": "Быстрая и умная логистика для ваших грузов",
         "hero_subtitle": "Безопасно доставляем ваши товары автомобильным транспортом напрямую в любую точку и в любое время. Азербайджан, Грузия, Россия, Европа, Турция и не только.",
@@ -293,6 +295,7 @@ TRANSLATIONS = {
         "nav_partners": "Partners",
         "nav_contact": "Contact",
         "cta_nav": "Get a quote",
+        "wa_prefill": "Hello! I have a logistics inquiry.",
 
         "hero_title": "Fast & smart logistics for your cargo",
         "hero_subtitle": "We move your goods safely by road, straight to any destination, any time. Azerbaijan, Georgia, Russia, Europe, Turkey and beyond.",

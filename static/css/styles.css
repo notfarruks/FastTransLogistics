@@ -507,3 +507,28 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 @media (prefers-reduced-motion: reduce){
   .partner-logo{ animation:none; filter:grayscale(1); opacity:.72; }
 }
+
+/* ============================================================
+   WHATSAPP floating button
+   ============================================================ */
+.wa-fab{
+  position:fixed; right:22px; bottom:22px; z-index:120;
+  display:inline-flex; align-items:center; gap:0;
+  height:58px; padding:0; width:58px; overflow:hidden;
+  background:#25d366; color:#fff; border-radius:30px;
+  box-shadow:0 8px 22px rgba(37,211,102,.45);
+  transition: width .28s ease, box-shadow .2s ease, transform .2s ease;
+}
+.wa-fab svg{ width:30px; height:30px; flex:none; margin:0 14px; }
+.wa-fab-text{
+  font-family:var(--font-body); font-weight:600; font-size:.95rem;
+  white-space:nowrap; opacity:0; transition:opacity .2s ease .05s; padding-right:4px;
+}
+.wa-fab:hover{ width:168px; box-shadow:0 10px 26px rgba(37,211,102,.6); transform:translateY(-2px); }
+.wa-fab:hover .wa-fab-text{ opacity:1; }
+.wa-fab:focus-visible{ outline:3px solid #fff; outline-offset:2px; }
+/* gentle attention pulse */
+@keyframes waPulse{ 0%,100%{ box-shadow:0 8px 22px rgba(37,211,102,.45);} 50%{ box-shadow:0 8px 22px rgba(37,211,102,.45), 0 0 0 10px rgba(37,211,102,.0);} }
+.wa-fab{ animation:waPulse 2.4s ease-out infinite; }
+@media (max-width:560px){ .wa-fab{ right:16px; bottom:16px; } }
+@media (prefers-reduced-motion: reduce){ .wa-fab{ animation:none; } }
