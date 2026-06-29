@@ -22,22 +22,24 @@ COMPANY = {
     "valid_until": "04.03.2031",
 }
 
-# Partner / client list — shown as tiles. Swap to <img> once real logos exist.
+# Partner / client list.
+# Each tile shows the logo image from static/img/partners/<file>.
+# Until that file exists, the tile gracefully falls back to the text name.
 PARTNERS = [
-    "Azertexnolayn",
-    "Sirab",
-    "Prime Cotton",
-    "Kazbegi",
-    "Sumqayıt Technologies Park",
-    "Azəralüminium",
-    "Azersun",
-    "Zəyəm Technologies Park",
-    "mr.fix",
-    "Aral Group",
-    "Ganja Sharab",
-    "Gilan Seramik",
-    "Agrarco",
-    "Monopak",
+    {"name": "Azertexnolayn",            "file": "azertexnolayn.png"},
+    {"name": "Sirab",                    "file": "sirab.png"},
+    {"name": "Prime Cotton",             "file": "prime-cotton.png"},
+    {"name": "Kazbegi",                  "file": "kazbegi.png"},
+    {"name": "Sumqayıt Technologies Park", "file": "stp.png"},
+    {"name": "Azəralüminium",            "file": "azeraluminium.png"},
+    {"name": "Azersun",                  "file": "azersun.png"},
+    {"name": "Zəyəm Technologies Park",  "file": "ztp.png"},
+    {"name": "mr.fix",                   "file": "mr-fix.png"},
+    {"name": "Aral Group",               "file": "aral-group.png"},
+    {"name": "Ganja Sharab",             "file": "ganja-sharab.png"},
+    {"name": "Gilan Seramik",            "file": "gilan-seramik.png"},
+    {"name": "Agrarco",                  "file": "agrarco.png"},
+    {"name": "Monopak",                  "file": "monopak.png"},
 ]
 
 # Countries served, per language (flag emoji + localized name).
@@ -337,13 +339,13 @@ TRANSLATIONS = {
         "form_destination": "To",
         "form_message": "Cargo details",
         "form_submit": "Send",
-        "form_success": "Thank you! Your inquiry has been received — we'll be in touch shortly.",
+        "form_success": "Thank you! Your request has been received, we'll be in touch shortly.",
         "contact_phone_label": "Phone",
         "contact_email_label": "Email",
         "contact_address_label": "Address",
         "contact_address": "Qafqaz Business Center, Baku, Azerbaijan",
 
-        "footer_about": "International road freight logistics company.",
+        "footer_about": "Logistics company for international road freight.",
         "footer_links": "Links",
         "footer_contact": "Contact",
         "footer_rights": "All rights reserved.",
