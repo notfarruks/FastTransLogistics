@@ -3,8 +3,13 @@
 {% block title %}{{ company.name }} — {{ t.nav_home }}{% endblock %}
 
 {% block content %}
-{% set service_icons = ['cargo', 'reefer', 'globe', 'shield'] %}
 {% set why_icons = ['bolt', 'check', 'link', 'route'] %}
+{% set service_photos = [
+  'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/10963747/pexels-photo-10963747.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/9831438/pexels-photo-9831438.jpeg?auto=compress&cs=tinysrgb&w=900',
+  'https://images.pexels.com/photos/16241422/pexels-photo-16241422.jpeg?auto=compress&cs=tinysrgb&w=900'
+] %}
 
 <!-- ============================ HERO ============================ -->
 <section class="hero">
@@ -54,7 +59,7 @@
 </section>
 
 <!-- ============================ ABOUT ============================ -->
-<section class="section">
+<section class="section section-tint-cream">
   <div class="container narrow center">
     <span class="bars" aria-hidden="true"><i></i><i></i></span><span class="eyebrow">{{ t.about_title }}</span>
     <h2>{{ t.about_title }}</h2>
@@ -69,7 +74,7 @@
     <h2 style="margin-bottom: 48px;">{{ t.why_title }}</h2>
     <div class="grid grid-4">
       {% for item in t.why_items %}
-      <div class="card">
+      <div class="card why-card">
         {{ icon(why_icons[loop.index0]) }}
         <h3>{{ item.title }}</h3>
         <p class="muted">{{ item.text }}</p>
@@ -90,10 +95,12 @@
     <p class="muted">{{ t.services_intro }}</p>
     <div class="grid grid-4">
       {% for s in services %}
-      <div class="card">
-        {{ icon(service_icons[loop.index0]) }}
-        <h3>{{ s.title }}</h3>
-        <p class="muted">{{ s.desc }}</p>
+      <div class="card service-card">
+        <div class="card-media" style="background-image:url('{{ service_photos[loop.index0] }}')"></div>
+        <div class="card-body">
+          <h3>{{ s.title }}</h3>
+          <p class="muted">{{ s.desc }}</p>
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -101,7 +108,7 @@
 </section>
 
 <!-- ============================ COVERAGE ============================ -->
-<section class="section section-alt">
+<section class="section section-tint-blue">
   <div class="container">
     <span class="bars" aria-hidden="true"><i></i><i></i></span>
     <div class="section-head">
