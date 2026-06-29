@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+{% from "_icons.html" import icon %}
 {% block title %}{{ company.name }} — {{ t.nav_services }}{% endblock %}
 
 {% block content %}
+{% set service_icons = ['cargo', 'reefer', 'globe', 'shield'] %}
 <section class="page-head">
   <div class="container narrow">
     <span class="eyebrow">{{ t.nav_services }}</span>
@@ -10,12 +12,12 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top: clamp(40px,5vw,64px);">
   <div class="container">
     <div class="grid grid-2">
       {% for s in services %}
-      <div class="card service service-lg">
-        <span class="service-icon">{{ s.icon }}</span>
+      <div class="card service-lg">
+        {{ icon(service_icons[loop.index0]) }}
         <h3>{{ s.title }}</h3>
         <p class="muted">{{ s.desc }}</p>
       </div>

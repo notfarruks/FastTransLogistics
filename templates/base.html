@@ -6,9 +6,9 @@
   <title>{% block title %}{{ company.name }}{% endblock %}</title>
   <meta name="description" content="{{ t.meta_desc }}" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml" />
@@ -21,7 +21,7 @@
   <header class="site-header">
     <div class="container nav-bar">
       <a class="brand" href="{{ url_for('home') }}" aria-label="{{ company.name }}">
-        <svg class="brand-mark" width="36" height="36" aria-hidden="true"><use href="#fs-logo"></use></svg>
+        <svg class="brand-mark" width="30" height="30" aria-hidden="true"><use href="#fs-logo"></use></svg>
         <span class="brand-name">Fast&nbsp;&amp;&nbsp;Smart<span class="brand-name-sub">Logistics</span></span>
       </a>
 
@@ -55,7 +55,7 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a class="brand" href="{{ url_for('home') }}">
-          <svg class="brand-mark" width="32" height="32" aria-hidden="true"><use href="#fs-logo"></use></svg>
+          <svg class="brand-mark" width="30" height="30" aria-hidden="true"><use href="#fs-logo"></use></svg>
           <span class="brand-name">Fast&nbsp;&amp;&nbsp;Smart<span class="brand-name-sub">Logistics</span></span>
         </a>
         <p class="footer-about">{{ t.footer_about }}</p>

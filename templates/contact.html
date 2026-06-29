@@ -10,11 +10,11 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top: clamp(40px,5vw,64px);">
   <div class="container contact-grid">
     <div class="contact-form-wrap">
       {% if sent %}
-        <div class="alert-success">✅ {{ t.form_success }}</div>
+        <div class="alert-success">{{ t.form_success }}</div>
       {% endif %}
       <form class="contact-form" method="POST" action="{{ url_for('contact') }}">
         <div class="field">
@@ -56,12 +56,10 @@
         <span class="info-label">{{ t.contact_address_label }}</span>
         <span>{{ t.contact_address }}</span>
       </div>
-      <div class="cert-badge cert-badge-static">
-        <span class="dot"></span>
-        <div>
-          <strong>{{ t.hero_cert.format(series=company.cert_series) }}</strong>
-          <small>{{ company.valid_from }} — {{ company.valid_until }}</small>
-        </div>
+      <div class="info-item info-cert">
+        <span class="info-label">{{ t.hero_badge }}</span>
+        <strong>{{ t.hero_cert.format(series=company.cert_series) }}</strong>
+        <small>{{ company.valid_from }} — {{ company.valid_until }}</small>
       </div>
     </aside>
   </div>

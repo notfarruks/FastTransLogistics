@@ -10,11 +10,11 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top: clamp(40px,5vw,64px);">
   <div class="container">
-    <div class="grid grid-4 country-grid">
+    <div class="grid country-grid">
       {% for c in countries %}
-      <div class="country country-lg"><span class="flag">{{ c.flag }}</span>{{ c.name }}</div>
+      <div class="country country-lg"><span class="idx">{{ '%02d' % loop.index }}</span>{{ c.name }}</div>
       {% endfor %}
     </div>
   </div>
@@ -22,12 +22,13 @@
 
 <section class="section section-alt">
   <div class="container narrow center">
+    <span class="eyebrow">{{ t.coverage_directions }}</span>
     <h2>{{ t.coverage_directions }}</h2>
-    <p class="muted">{{ t.coverage_intro }}</p>
+    <p class="muted" style="margin: 24px auto 0;">{{ t.coverage_intro }}</p>
     <div class="route-line" aria-hidden="true">
-      <span class="route-node">🇦🇿</span>
-      <span class="route-track"><span class="route-truck">🚚</span></span>
-      <span class="route-node">🇬🇪 🇷🇺 🇹🇷 🇪🇺</span>
+      <span class="route-node">{{ countries[0].name }}</span>
+      <span class="route-track"></span>
+      <span class="route-node">{{ countries[2].name }} · {{ countries[5].name }} · {{ countries[7].name }}</span>
     </div>
   </div>
 </section>
