@@ -1,10 +1,22 @@
-{# Inline SVG symbol, defined once and referenced via <use>. Monochrome, inherits currentColor. #}
+{# Inline SVG symbol — redrawn line-art truck, monochrome, inherits currentColor. #}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <symbol id="fs-logo" viewBox="0 0 48 48">
-      <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="9" fill="none" stroke="currentColor" stroke-width="2.5"/>
-      <path d="M12 14 22 24 12 34" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M24 14 34 24 24 34" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <symbol id="fs-logo" viewBox="0 0 162 80">
+      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 60 V44 H26 L42 28 H60 V60 Z"/>
+        <rect x="58" y="24" width="96" height="36" rx="2"/>
+        <path d="M88 24 V60 M118 24 V60"/>
+        <path d="M44 30 L31 43 M50 30 V60"/>
+        <path d="M6 72 H156 M6 60 H10"/>
+        <circle cx="30" cy="64" r="8"/>
+        <circle cx="100" cy="64" r="8"/>
+        <circle cx="126" cy="64" r="8"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="30" cy="64" r="2.4"/>
+        <circle cx="100" cy="64" r="2.4"/>
+        <circle cx="126" cy="64" r="2.4"/>
+      </g>
     </symbol>
   </defs>
 </svg>

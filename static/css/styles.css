@@ -290,3 +290,47 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
   .cta-inner { flex-direction: column; align-items: flex-start; }
   .route-track { max-width: 60px; }
 }
+
+/* ============================================================
+   Brand accents — red + blue, used sparingly on a mono base
+   ============================================================ */
+:root { --red: #e11d2a; --blue: #1d4ed8; }
+
+/* thin brand stripe across the very top of the site */
+.site-header { border-top: 3px solid var(--blue); }
+.site-header::before {
+  content: ""; position: absolute; top: -3px; left: 0; width: 50%; height: 3px; background: var(--red);
+}
+.site-header { position: sticky; }
+
+/* recurring red+blue marker placed above eyebrows / headings */
+.bars { display: flex; gap: 4px; margin-bottom: 16px; }
+.bars i { display: block; width: 22px; height: 4px; border-radius: 1px; }
+.bars i:first-child { background: var(--red); }
+.bars i:last-child  { background: var(--blue); }
+.center .bars { margin-left: auto; margin-right: auto; width: max-content; }
+
+/* logo accent bars (footer brand) */
+.brand-bars { display: flex; gap: 4px; margin-top: 10px; }
+.brand-bars i { display: block; width: 20px; height: 3px; border-radius: 1px; }
+.brand-bars i:first-child { background: var(--red); }
+.brand-bars i:last-child  { background: var(--blue); }
+
+/* functional accents (blue for interaction) */
+.nav-link.active { box-shadow: inset 0 -2px 0 var(--blue); }
+.link-arrow:hover { color: var(--blue); border-color: var(--blue); opacity: 1; }
+.field input:focus, .field textarea:focus { border-color: var(--blue); }
+.info-item a:hover { color: var(--blue); text-decoration: none; }
+.panel-row a:hover { color: #fff; }
+.footer-col a:hover { color: #fff; }
+
+/* coverage route: red origin dot, blue arrow head */
+.route-track::before { content: ""; position: absolute; left: 0; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+.route-track::after { border-top-color: var(--blue); border-right-color: var(--blue); }
+
+/* stat numbers: subtle accent underline under the first two */
+.stat:nth-child(1) .stat-num, .stat:nth-child(3) .stat-num { box-shadow: inset 0 -3px 0 rgba(225,29,42,.18); }
+.stat:nth-child(2) .stat-num, .stat:nth-child(4) .stat-num { box-shadow: inset 0 -3px 0 rgba(29,78,216,.18); }
+
+/* CTA accent button keeps white; add bars motif on dark bands (vivid on black) */
+.cta-band .bars i, .hero .bars i, .site-footer .bars i { height: 4px; }
