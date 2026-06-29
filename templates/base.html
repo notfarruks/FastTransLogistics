@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{{ company.name }}{% endblock %}</title>
+  <meta name="description" content="{{ t.meta_desc }}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {% include "_logo.html" %}
+
+  <header class="site-header">
+    <div class="container nav-bar">
+      <a class="brand" href="{{ url_for('home') }}" aria-label="{{ company.name }}">
+        <svg class="brand-mark" width="36" height="36" aria-hidden="true"><use href="#fs-logo"></use></svg>
+        <span class="brand-name">Fast&nbsp;&amp;&nbsp;Smart<span class="brand-name-sub">Logistics</span></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a class="nav-link {{ 'active' if page == 'home' }}" href="{{ url_for('home') }}">{{ t.nav_home }}</a>
+        <a class="nav-link {{ 'active' if page == 'services' }}" href="{{ url_for('services') }}">{{ t.nav_services }}</a>
+        <a class="nav-link {{ 'active' if page == 'coverage' }}" href="{{ url_for('coverage') }}">{{ t.nav_coverage }}</a>
+        <a class="nav-link {{ 'active' if page == 'partners' }}" href="{{ url_for('partners') }}">{{ t.nav_partners }}</a>
+        <a class="nav-link {{ 'active' if page == 'contact' }}" href="{{ url_for('contact') }}">{{ t.nav_contact }}</a>
+
+        <div class="lang-switch" role="group" aria-label="Language">
+          {% for code, label in languages.items() %}
+            <a class="lang-pill {{ 'active' if lang == code }}" href="{{ switch_lang_url(code) }}">{{ label }}</a>
+          {% endfor %}
+        </div>
+
+        <a class="btn btn-primary nav-cta" href="{{ url_for('contact') }}">{{ t.cta_nav }}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="{{ url_for('home') }}">
+          <svg class="brand-mark" width="32" height="32" aria-hidden="true"><use href="#fs-logo"></use></svg>
+          <span class="brand-name">Fast&nbsp;&amp;&nbsp;Smart<span class="brand-name-sub">Logistics</span></span>
+        </a>
+        <p class="footer-about">{{ t.footer_about }}</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>{{ t.footer_links }}</h4>
+        <a href="{{ url_for('home') }}">{{ t.nav_home }}</a>
+        <a href="{{ url_for('services') }}">{{ t.nav_services }}</a>
+        <a href="{{ url_for('coverage') }}">{{ t.nav_coverage }}</a>
+        <a href="{{ url_for('partners') }}">{{ t.nav_partners }}</a>
+        <a href="{{ url_for('contact') }}">{{ t.nav_contact }}</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>{{ t.footer_contact }}</h4>
+        <a href="tel:{{ company.phone_href }}">{{ company.phone }}</a>
+        <a href="mailto:{{ company.email }}">{{ company.email }}</a>
+        <span>{{ t.contact_address }}</span>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© {{ 2026 }} {{ company.name }}. {{ t.footer_rights }}</span>
+      <span class="footer-cert">{{ t.footer_cert.format(tin=company.tin, series=company.cert_series, until=company.valid_until) }}</span>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

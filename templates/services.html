@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ company.name }} — {{ t.nav_services }}{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <div class="container narrow">
+    <span class="eyebrow">{{ t.nav_services }}</span>
+    <h1>{{ t.services_title }}</h1>
+    <p class="lead">{{ t.services_intro }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      {% for s in services %}
+      <div class="card service service-lg">
+        <span class="service-icon">{{ s.icon }}</span>
+        <h3>{{ s.title }}</h3>
+        <p class="muted">{{ s.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "_cta.html" %}
+{% endblock %}
