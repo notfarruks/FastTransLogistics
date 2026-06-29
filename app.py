@@ -9,6 +9,7 @@ import os
 
 from flask import (
     Flask,
+    Response,
     g,
     make_response,
     redirect,
@@ -67,6 +68,7 @@ def inject_globals():
         "languages": LANGUAGES,
         "t": t,
         "company": COMPANY,
+        "seo_countries": [c["name"] for c in COUNTRIES[g.lang]],
         # convenience for the language switcher: keep current page, swap lang
         "switch_lang_url": lambda code: url_for(request.endpoint, lang=code)
         if request.endpoint
@@ -133,6 +135,48 @@ def contact():
         sent = True
 
     return render_template("contact.html", page="contact", sent=sent)
+
+
+@app.route("/robots.txt")
+def robots():
+    body = "\n".join(
+        [
+            "User-agent: *",
+            "Allow: /",
+            f"Sitemap: {request.url_root}sitemap.xml",
+            "",
+        ]
+    )
+    return Response(body, mimetype="text/plain")
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+    base = request.url_root.rstrip("/")
+    pages = ["home", "services", "coverage", "partners", "contact"]
+    xmlns = (
+        'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:xhtml="http://www.w3.org/1999/xhtml"'
+    )
+    rows = [f'<?xml version="1.0" encoding="UTF-8"?>', f"<urlset {xmlns}>"]
+    for ep in pages:
+        path = url_for(ep)
+        for code in LANGUAGES:
+            loc = f"{base}{path}?lang={code}"
+            rows.append("  <url>")
+            rows.append(f"    <loc>{loc}</loc>")
+            for alt in LANGUAGES:
+                rows.append(
+                    f'    <xhtml:link rel="alternate" hreflang="{alt}" '
+                    f'href="{base}{path}?lang={alt}"/>'
+                )
+            rows.append(
+                f'    <xhtml:link rel="alternate" hreflang="x-default" '
+                f'href="{base}{path}"/>'
+            )
+            rows.append("  </url>")
+    rows.append("</urlset>")
+    return Response("\n".join(rows), mimetype="application/xml")
 
 
 @app.route("/healthz")

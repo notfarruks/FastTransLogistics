@@ -1,0 +1,3 @@
+Drop the two .woff2 files here:
+  ClashDisplay-Variable.woff2
+  Satoshi-Variable.woff2

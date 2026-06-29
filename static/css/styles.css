@@ -1,4 +1,25 @@
 /* ============================================================
+   Self-hosted fonts (place .woff2 files in static/fonts/)
+   See FONTS_SETUP.txt for the 2-file manual download.
+   System-font fallbacks below keep the site readable even
+   before the woff2 files are added.
+   ============================================================ */
+@font-face {
+  font-family: "Clash Display";
+  src: url("/static/fonts/ClashDisplay-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("/static/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* ============================================================
    Fast & Smart Logistics — monochrome design system
    Light base · dark sections · near-black accents only
    ============================================================ */

@@ -1,0 +1,23 @@
+SELF-HOSTING THE FONTS  (2 manual downloads — ~2 minutes)
+=========================================================
+The site now loads fonts from static/fonts/ instead of the Fontshare CDN.
+Until you add the two files below, browsers fall back to system fonts
+(the site still looks fine — just not the exact branded typefaces).
+
+1) Clash Display
+   - Go to: https://www.fontshare.com/fonts/clash-display
+   - Click "Download Family" (top right)
+   - Unzip. In the unzipped folder open: Fonts/Variable/
+   - Copy  ClashDisplay-Variable.woff2  into  static\fonts\
+
+2) Satoshi
+   - Go to: https://www.fontshare.com/fonts/satoshi
+   - Click "Download Family"
+   - Unzip. Open: Fonts/Variable/
+   - Copy  Satoshi-Variable.woff2  into  static\fonts\
+
+3) Delete PLACEHOLDER.txt (optional), commit, push.
+
+If a download only gives .ttf/.otf, convert to woff2 at
+https://cloudconvert.com/ttf-to-woff2  (or keep the link version).
+The @font-face rules expect those exact filenames — keep the names as-is.

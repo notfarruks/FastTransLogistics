@@ -6,9 +6,48 @@
   <title>{% block title %}{{ company.name }}{% endblock %}</title>
   <meta name="description" content="{{ t.meta_desc }}" />
 
-  <link rel="preconnect" href="https://api.fontshare.com" />
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet" />
+  {# --- Canonical + language alternates (hreflang) --- #}
+  <link rel="canonical" href="{{ request.base_url }}?lang={{ lang }}" />
+  {% for code in languages %}
+  <link rel="alternate" hreflang="{{ code }}" href="{{ request.base_url }}?lang={{ code }}" />
+  {% endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ request.base_url }}" />
+
+  {# --- Open Graph (Facebook, LinkedIn, WhatsApp link previews) --- #}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="{{ company.name }}" />
+  <meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}" />
+  <meta property="og:description" content="{{ t.meta_desc }}" />
+  <meta property="og:url" content="{{ request.base_url }}?lang={{ lang }}" />
+  <meta property="og:locale" content="{{ {'az':'az_AZ','ru':'ru_RU','en':'en_US'}[lang] }}" />
+  <meta property="og:image" content="{{ request.url_root }}static/img/photos/hero.jpg" />
+
+  {# --- Twitter / X card --- #}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{% block tw_title %}{{ self.title() }}{% endblock %}" />
+  <meta name="twitter:description" content="{{ t.meta_desc }}" />
+  <meta name="twitter:image" content="{{ request.url_root }}static/img/photos/hero.jpg" />
+
+  {# --- Structured data: LocalBusiness (Google rich results) --- #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "name": "{{ company.name }}",
+    "url": "{{ request.url_root }}",
+    "image": "{{ request.url_root }}static/img/photos/hero.jpg",
+    "telephone": "{{ company.phone }}",
+    "email": "{{ company.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ t.contact_address }}",
+      "addressLocality": "Baku",
+      "addressCountry": "AZ"
+    },
+    "vatID": "{{ company.tin }}",
+    "areaServed": [{% for c in seo_countries %}"{{ c }}"{% if not loop.last %}, {% endif %}{% endfor %}]
+  }
+  </script>
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
   <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml" />
