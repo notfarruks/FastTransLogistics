@@ -426,3 +426,84 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 
 /* keep the brand stripe punchy */
 .bars i{ height:5px; }
+
+/* ============================================================
+   COVERAGE — flag tiles + livelier interaction
+   ============================================================ */
+.country{
+  position:relative; display:flex; align-items:center; gap:16px;
+  border-left:4px solid transparent;
+  transition: transform .22s ease, box-shadow .22s ease, background .18s ease;
+}
+.country:hover{
+  transform:translateY(-4px); background:#fff; z-index:2;
+  box-shadow:0 14px 32px rgba(15,23,42,.14);
+}
+.country-flag{
+  width:48px; height:34px; flex:none; object-fit:cover;
+  border-radius:5px; box-shadow:0 1px 4px rgba(0,0,0,.22);
+  transition: transform .22s ease;
+}
+.country:hover .country-flag{ transform:scale(1.06); }
+.country-meta{ display:flex; flex-direction:column; gap:2px; line-height:1.18; min-width:0; }
+.country-meta .idx{ font-family:var(--font-body); font-size:.7rem; font-weight:700; letter-spacing:.06em; color:var(--blue); }
+.country-name{ font-family:var(--font-head); font-weight:600; font-size:1.02rem; letter-spacing:-0.01em; color:var(--ink); }
+.country-lg{ padding:26px 28px; }
+.country-lg .country-flag{ width:62px; height:42px; }
+.country-lg .country-name{ font-size:1.16rem; }
+
+/* animated red→blue route line */
+.route-track{
+  height:3px; border-radius:2px; overflow:visible;
+  background:linear-gradient(90deg,var(--red),var(--blue));
+}
+.route-track::before{ background:var(--red); box-shadow:0 0 0 4px rgba(225,29,42,.18); }
+.route-track::after{ border-top-color:var(--blue); border-right-color:var(--blue); }
+/* a glowing pulse that travels the line */
+.route-track{ position:relative; }
+.route-pulse{
+  position:absolute; top:50%; left:0; width:11px; height:11px; margin-top:-5.5px;
+  border-radius:50%; background:#fff;
+  box-shadow:0 0 0 3px rgba(37,99,235,.55), 0 0 12px 2px rgba(37,99,235,.8);
+  animation: routeRun 2.6s ease-in-out infinite;
+}
+@keyframes routeRun{
+  0%{ left:0%; opacity:0; }
+  12%{ opacity:1; }
+  88%{ opacity:1; }
+  100%{ left:100%; opacity:0; }
+}
+@media (prefers-reduced-motion: reduce){ .route-pulse{ animation:none; opacity:0; } }
+
+/* ============================================================
+   PARTNERS — auto "light up" ripple (grayscale <-> color)
+   ============================================================ */
+@keyframes logoGlow{
+  0%, 100% { filter:grayscale(1); opacity:.5; }
+  50%      { filter:grayscale(0); opacity:1; }
+}
+.partner-logo{ animation: logoGlow 4.5s ease-in-out infinite; }
+
+/* diagonal stagger so they light up in a wave across the grid */
+.partner-tile:nth-child(1)  .partner-logo{ animation-delay:0s; }
+.partner-tile:nth-child(2)  .partner-logo{ animation-delay:.25s; }
+.partner-tile:nth-child(3)  .partner-logo{ animation-delay:.5s; }
+.partner-tile:nth-child(4)  .partner-logo{ animation-delay:.75s; }
+.partner-tile:nth-child(5)  .partner-logo{ animation-delay:.25s; }
+.partner-tile:nth-child(6)  .partner-logo{ animation-delay:.5s; }
+.partner-tile:nth-child(7)  .partner-logo{ animation-delay:.75s; }
+.partner-tile:nth-child(8)  .partner-logo{ animation-delay:1s; }
+.partner-tile:nth-child(9)  .partner-logo{ animation-delay:.5s; }
+.partner-tile:nth-child(10) .partner-logo{ animation-delay:.75s; }
+.partner-tile:nth-child(11) .partner-logo{ animation-delay:1s; }
+.partner-tile:nth-child(12) .partner-logo{ animation-delay:1.25s; }
+.partner-tile:nth-child(13) .partner-logo{ animation-delay:.75s; }
+.partner-tile:nth-child(14) .partner-logo{ animation-delay:1s; }
+
+/* hover still wins: freeze bright */
+.partner-tile:hover .partner-logo{
+  animation-play-state:paused; filter:grayscale(0); opacity:1;
+}
+@media (prefers-reduced-motion: reduce){
+  .partner-logo{ animation:none; filter:grayscale(1); opacity:.72; }
+}

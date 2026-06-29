@@ -4,6 +4,7 @@
 
 {% block content %}
 {% set why_icons = ['bolt', 'check', 'link', 'route'] %}
+{% set country_iso = ['az', 'ge', 'ru', 'tr', 'by', 'eu', 'rs', 'cn'] %}
 {% set service_photos = [
   'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=900',
   'https://images.pexels.com/photos/10963747/pexels-photo-10963747.jpeg?auto=compress&cs=tinysrgb&w=900',
@@ -118,7 +119,10 @@
     <p class="muted">{{ t.coverage_intro }}</p>
     <div class="grid country-grid">
       {% for c in countries %}
-      <div class="country"><span class="idx">{{ '%02d' % loop.index }}</span>{{ c.name }}</div>
+      <div class="country">
+        <img class="country-flag" src="https://flagcdn.com/w160/{{ country_iso[loop.index0] }}.png" alt="{{ c.name }}" loading="lazy" onerror="this.style.display='none'">
+        <div class="country-meta"><span class="idx">{{ '%02d' % loop.index }}</span><span class="country-name">{{ c.name }}</span></div>
+      </div>
       {% endfor %}
     </div>
   </div>
