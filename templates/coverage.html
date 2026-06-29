@@ -11,12 +11,56 @@
   </div>
 </section>
 
-<section class="section" style="padding-top: clamp(40px,5vw,64px);">
+<!-- ============================ ROUTE MAP ============================ -->
+<section class="section" style="padding-top: clamp(32px,4vw,52px);">
   <div class="container">
+    <span class="bars" aria-hidden="true"><i></i><i></i></span>
+    <h2>{{ t.map_title }}</h2>
+    <p class="muted">{{ t.map_intro }}</p>
+
+    <div class="map-wrap">
+      <svg class="route-map" viewBox="0 0 1000 540" role="img"
+           aria-label="{{ t.map_title }}" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.4" fill="rgba(29,78,216,.16)"/>
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="1000" height="540" fill="url(#dots)" rx="16"/>
+
+        <!-- routes (hub -> destinations) -->
+        <path class="route-path r-red"   d="M430,300 Q280,330 150,330"/>
+        <path class="route-path r-blue"  d="M430,300 Q360,160 300,95"/>
+        <path class="route-path r-amber" d="M430,300 Q560,150 660,110"/>
+        <path class="route-path r-green" d="M430,300 Q680,300 860,300"/>
+
+        <!-- destination nodes -->
+        <g class="map-node"><circle cx="150" cy="330" r="7" class="n-red"/><text x="150" y="360">{{ countries[3].name }}</text></g>
+        <g class="map-node"><circle cx="300" cy="95"  r="7" class="n-blue"/><text x="300" y="78">{{ countries[5].name }}</text></g>
+        <g class="map-node"><circle cx="660" cy="110" r="7" class="n-amber"/><text x="660" y="93">{{ countries[2].name }}</text></g>
+        <g class="map-node"><circle cx="860" cy="300" r="7" class="n-green"/><text x="860" y="330">{{ countries[7].name }}</text></g>
+
+        <!-- hub -->
+        <g class="map-hub">
+          <circle cx="430" cy="300" r="16" class="hub-ring"/>
+          <circle cx="430" cy="300" r="7" class="hub-dot"/>
+          <text x="430" y="340">{{ countries[0].name }}</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COUNTRY GRID ============================ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="bars" aria-hidden="true"><i></i><i></i></span><span class="eyebrow">{{ t.coverage_directions }}</span>
+    <h2>{{ t.coverage_directions }}</h2>
+    <p class="muted">{{ t.coverage_intro }}</p>
     <div class="grid country-grid">
       {% for c in countries %}
       <div class="country country-lg">
-        <img class="country-flag" src="https://flagcdn.com/w320/{{ country_iso[loop.index0] }}.png" alt="{{ c.name }}" loading="lazy" onerror="this.style.display='none'">
+        <img class="country-flag" src="{{ url_for('static', filename='img/flags/' + country_iso[loop.index0] + '.png') }}" alt="{{ c.name }}" width="62" height="42" loading="lazy" onerror="this.style.display='none'">
         <div class="country-meta"><span class="idx">{{ '%02d' % loop.index }}</span><span class="country-name">{{ c.name }}</span></div>
       </div>
       {% endfor %}
@@ -24,15 +68,19 @@
   </div>
 </section>
 
-<section class="section section-alt">
-  <div class="container narrow center">
-    <span class="bars" aria-hidden="true"><i></i><i></i></span><span class="eyebrow">{{ t.coverage_directions }}</span>
-    <h2>{{ t.coverage_directions }}</h2>
-    <p class="muted" style="margin: 24px auto 0;">{{ t.coverage_intro }}</p>
-    <div class="route-line" aria-hidden="true">
-      <span class="route-node">{{ countries[0].name }}</span>
-      <span class="route-track"><span class="route-pulse"></span></span>
-      <span class="route-node">{{ countries[2].name }} · {{ countries[5].name }} · {{ countries[7].name }}</span>
+<!-- ============================ FAQ ============================ -->
+<section class="section">
+  <div class="container narrow">
+    <span class="bars" aria-hidden="true"><i></i><i></i></span>
+    <h2>{{ t.faq_title }}</h2>
+    <p class="muted">{{ t.faq_intro }}</p>
+    <div class="faq-list">
+      {% for f in faq %}
+      <details class="faq-item"{% if loop.first %} open{% endif %}>
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+      {% endfor %}
     </div>
   </div>
 </section>

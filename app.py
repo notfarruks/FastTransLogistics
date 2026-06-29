@@ -17,7 +17,16 @@ from flask import (
     url_for,
 )
 
-from content import LANGUAGES, TRANSLATIONS, PARTNERS, COUNTRIES, SERVICES, COMPANY
+from content import (
+    LANGUAGES,
+    TRANSLATIONS,
+    PARTNERS,
+    COUNTRIES,
+    SERVICES,
+    COMPANY,
+    TESTIMONIALS,
+    FAQ,
+)
 
 app = Flask(__name__)
 
@@ -73,6 +82,8 @@ def home():
         services=SERVICES[g.lang],
         countries=COUNTRIES[g.lang],
         partners=PARTNERS,
+        testimonials=TESTIMONIALS[g.lang],
+        faq=FAQ[g.lang],
     )
 
 
@@ -91,6 +102,7 @@ def coverage():
         "coverage.html",
         page="coverage",
         countries=COUNTRIES[g.lang],
+        faq=FAQ[g.lang],
     )
 
 

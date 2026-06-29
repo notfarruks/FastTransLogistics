@@ -146,6 +146,48 @@ SERVICES = {
     ],
 }
 
+TESTIMONIALS = {
+    "az": [
+        {"quote": "Yüklərimiz hər dəfə vaxtında və problemsiz çatdırılır. Komanda peşəkar və hər addımda əlaqədədir.", "author": "Tədarük müdiri", "role": "FMCG idxalçısı"},
+        {"quote": "Temperatura nəzarət edilən daşımalar bizim üçün kritikdir — Fast & Smart bu sahədə tam etibarlıdır.", "author": "Logistika rəhbəri", "role": "Qida istehsalçısı"},
+        {"quote": "Avropa istiqamətində sənədləşmə və gömrük prosesləri rahat keçdi. Tövsiyə edirik.", "author": "İxracat üzrə menecer", "role": "Sənaye şirkəti"},
+    ],
+    "ru": [
+        {"quote": "Грузы всегда доставляются вовремя и без проблем. Команда профессиональна и на связи на каждом этапе.", "author": "Менеджер по закупкам", "role": "Импортёр FMCG"},
+        {"quote": "Перевозки с температурным режимом для нас критичны — Fast & Smart полностью надёжны в этом.", "author": "Руководитель логистики", "role": "Производитель продуктов питания"},
+        {"quote": "Документы и таможня по европейскому направлению прошли гладко. Рекомендуем.", "author": "Менеджер по экспорту", "role": "Промышленная компания"},
+    ],
+    "en": [
+        {"quote": "Our shipments arrive on time and without issues every time. The team is professional and in touch at every step.", "author": "Procurement Manager", "role": "FMCG importer"},
+        {"quote": "Temperature-controlled transport is critical for us — Fast & Smart is fully reliable here.", "author": "Head of Logistics", "role": "Food manufacturer"},
+        {"quote": "Documentation and customs on the Europe route went smoothly. Highly recommended.", "author": "Export Manager", "role": "Industrial company"},
+    ],
+}
+
+FAQ = {
+    "az": [
+        {"q": "Hansı ölkələrə daşıma edirsiniz?", "a": "Azərbaycan, Gürcüstan, Rusiya, Belarus, Türkiyə, Avropa və Balkan ölkələri, həmçinin Çin istiqamətində quru yük daşımaları həyata keçiririk."},
+        {"q": "Çatdırılma nə qədər çəkir?", "a": "Tranzit müddəti istiqamətə görə dəyişir — qonşu ölkələrə bir neçə gün, Avropaya isə adətən 1–2 həftə. Dəqiq müddət üçün bizimlə əlaqə saxlayın."},
+        {"q": "Yüklər sığortalanır?", "a": "Bəli. Bütün daşımalar beynəlxalq tələblərə uyğun sənədləşdirilir və müştəri tələbinə görə sığorta təşkil olunur."},
+        {"q": "Temperatura həssas yükləri daşıyırsınız?", "a": "Bəli, soyuducu (refrijerator) nəqliyyatımız temperatura nəzarət edilən daşımalar üçün uyğundur."},
+        {"q": "Sifarişi necə verə bilərəm?", "a": "Əlaqə formasını doldura və ya WhatsApp düyməsi ilə birbaşa bizə yaza bilərsiniz — qısa müddətdə təklif təqdim edirik."},
+    ],
+    "ru": [
+        {"q": "В какие страны вы осуществляете перевозки?", "a": "Мы выполняем автомобильные грузоперевозки в Азербайджан, Грузию, Россию, Беларусь, Турцию, страны Европы и Балкан, а также в направлении Китая."},
+        {"q": "Сколько занимает доставка?", "a": "Срок зависит от направления — несколько дней в соседние страны и обычно 1–2 недели в Европу. Для точного срока свяжитесь с нами."},
+        {"q": "Грузы страхуются?", "a": "Да. Все перевозки оформляются в соответствии с международными требованиями, страхование организуется по запросу клиента."},
+        {"q": "Перевозите ли вы температурно-чувствительные грузы?", "a": "Да, наш рефрижераторный транспорт подходит для перевозок с температурным режимом."},
+        {"q": "Как оформить заказ?", "a": "Заполните форму обратной связи или напишите нам напрямую через кнопку WhatsApp — мы быстро подготовим предложение."},
+    ],
+    "en": [
+        {"q": "Which countries do you ship to?", "a": "We provide road freight to Azerbaijan, Georgia, Russia, Belarus, Turkey, Europe and the Balkans, as well as the China direction."},
+        {"q": "How long does delivery take?", "a": "Transit time depends on the route — a few days to neighbouring countries and typically 1–2 weeks to Europe. Contact us for an exact estimate."},
+        {"q": "Is cargo insured?", "a": "Yes. All shipments are documented to international standards, and insurance is arranged on request."},
+        {"q": "Do you carry temperature-sensitive cargo?", "a": "Yes, our refrigerated (reefer) fleet is suited to temperature-controlled transport."},
+        {"q": "How do I request a shipment?", "a": "Fill in the contact form or message us directly via the WhatsApp button — we'll get back with a quote quickly."},
+    ],
+}
+
 # --- UI strings, per language ---
 TRANSLATIONS = {
     # ============================ AZERBAIJANI ============================
@@ -157,6 +199,14 @@ TRANSLATIONS = {
         "nav_partners": "Tərəfdaşlar",
         "nav_contact": "Əlaqə",
         "cta_nav": "Təklif al",
+        "gallery_title": "Parkımız və əməliyyatlarımız",
+        "gallery_intro": "65 nəqliyyat vasitəsindən ibarət park və öz təmir bazamızla daşımalarımıza tam nəzarət edirik.",
+        "testimonials_title": "Müştərilərimiz nə deyir",
+        "testimonials_intro": "Uzunmüddətli tərəfdaşlarımızın etimadı işimizin əsasıdır.",
+        "faq_title": "Tez-tez verilən suallar",
+        "faq_intro": "Daşımalarımız haqqında ən çox soruşulanlar.",
+        "map_title": "Marşrut xəritəsi",
+        "map_intro": "Azərbaycandan əsas istiqamətlərə birbaşa quru yük marşrutları.",
 
         "hero_title": "Yükləriniz üçün sürətli və ağıllı logistika",
         "hero_subtitle": "Məhsullarınızı istənilən vaxtda birbaşa istənilən nöqtəyə quru yolu ilə təhlükəsiz daşıyırıq. Azərbaycan, Gürcüstan, Rusiya, Avropa, Türkiyə və daha çox.",
@@ -225,6 +275,14 @@ TRANSLATIONS = {
         "nav_partners": "Партнёры",
         "nav_contact": "Контакты",
         "cta_nav": "Получить расчёт",
+        "gallery_title": "Наш автопарк и операции",
+        "gallery_intro": "Парк из 65 единиц техники и собственная ремонтная база дают нам полный контроль над перевозками.",
+        "testimonials_title": "Что говорят клиенты",
+        "testimonials_intro": "Доверие наших постоянных партнёров — основа нашей работы.",
+        "faq_title": "Частые вопросы",
+        "faq_intro": "Самое важное о наших перевозках.",
+        "map_title": "Карта маршрутов",
+        "map_intro": "Прямые автомобильные маршруты из Азербайджана по основным направлениям.",
 
         "hero_title": "Быстрая и умная логистика для ваших грузов",
         "hero_subtitle": "Безопасно доставляем ваши товары автомобильным транспортом напрямую в любую точку и в любое время. Азербайджан, Грузия, Россия, Европа, Турция и не только.",
@@ -293,6 +351,14 @@ TRANSLATIONS = {
         "nav_partners": "Partners",
         "nav_contact": "Contact",
         "cta_nav": "Get a quote",
+        "gallery_title": "Our fleet & operations",
+        "gallery_intro": "A 65-vehicle fleet and our own repair base give us full control over every shipment.",
+        "testimonials_title": "What our clients say",
+        "testimonials_intro": "The trust of our long-term partners is the foundation of our work.",
+        "faq_title": "Frequently asked questions",
+        "faq_intro": "The essentials about how we move your freight.",
+        "map_title": "Route map",
+        "map_intro": "Direct road-freight routes from Azerbaijan to the main directions.",
 
         "hero_title": "Fast & smart logistics for your cargo",
         "hero_subtitle": "We move your goods safely by road, straight to any destination, any time. Azerbaijan, Georgia, Russia, Europe, Turkey and beyond.",

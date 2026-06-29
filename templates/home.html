@@ -5,12 +5,8 @@
 {% block content %}
 {% set why_icons = ['bolt', 'check', 'link', 'route'] %}
 {% set country_iso = ['az', 'ge', 'ru', 'tr', 'by', 'eu', 'rs', 'cn'] %}
-{% set service_photos = [
-  'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=900',
-  'https://images.pexels.com/photos/10963747/pexels-photo-10963747.jpeg?auto=compress&cs=tinysrgb&w=900',
-  'https://images.pexels.com/photos/9831438/pexels-photo-9831438.jpeg?auto=compress&cs=tinysrgb&w=900',
-  'https://images.pexels.com/photos/16241422/pexels-photo-16241422.jpeg?auto=compress&cs=tinysrgb&w=900'
-] %}
+{% set service_imgs = ['service-1.jpg', 'service-2.jpg', 'service-3.jpg', 'service-4.jpg'] %}
+{% set gallery_imgs = ['gallery-1.jpg', 'gallery-2.jpg', 'gallery-3.jpg', 'gallery-4.jpg', 'gallery-5.jpg', 'gallery-6.jpg'] %}
 
 <!-- ============================ HERO ============================ -->
 <section class="hero">
@@ -97,12 +93,28 @@
     <div class="grid grid-4">
       {% for s in services %}
       <div class="card service-card">
-        <div class="card-media" style="background-image:url('{{ service_photos[loop.index0] }}')"></div>
+        <div class="card-media" style="background-image:url('{{ url_for('static', filename='img/photos/' + service_imgs[loop.index0]) }}')"></div>
         <div class="card-body">
           <h3>{{ s.title }}</h3>
           <p class="muted">{{ s.desc }}</p>
         </div>
       </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FLEET GALLERY ============================ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="bars" aria-hidden="true"><i></i><i></i></span>
+    <h2>{{ t.gallery_title }}</h2>
+    <p class="muted">{{ t.gallery_intro }}</p>
+    <div class="gallery-grid">
+      {% for g in gallery_imgs %}
+      <figure class="gallery-item">
+        <img src="{{ url_for('static', filename='img/photos/' + g) }}" alt="{{ company.name }}" width="600" height="400" loading="lazy" onerror="this.style.display='none'">
+      </figure>
       {% endfor %}
     </div>
   </div>
@@ -120,7 +132,7 @@
     <div class="grid country-grid">
       {% for c in countries %}
       <div class="country">
-        <img class="country-flag" src="https://flagcdn.com/w160/{{ country_iso[loop.index0] }}.png" alt="{{ c.name }}" loading="lazy" onerror="this.style.display='none'">
+        <img class="country-flag" src="{{ url_for('static', filename='img/flags/' + country_iso[loop.index0] + '.png') }}" alt="{{ c.name }}" width="48" height="34" loading="lazy" onerror="this.style.display='none'">
         <div class="country-meta"><span class="idx">{{ '%02d' % loop.index }}</span><span class="country-name">{{ c.name }}</span></div>
       </div>
       {% endfor %}
@@ -143,6 +155,44 @@
         <img class="partner-logo" src="{{ url_for('static', filename='img/partners/' + p.file) }}" alt="{{ p.name }}" loading="lazy" onerror="this.parentNode.classList.add('no-logo'); this.style.display='none';">
         <span class="partner-name">{{ p.name }}</span>
       </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS ============================ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="bars" aria-hidden="true"><i></i><i></i></span>
+    <h2>{{ t.testimonials_title }}</h2>
+    <p class="muted">{{ t.testimonials_intro }}</p>
+    <div class="grid grid-3 quote-grid">
+      {% for q in testimonials %}
+      <figure class="quote-card">
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote>{{ q.quote }}</blockquote>
+        <figcaption>
+          <span class="quote-avatar" aria-hidden="true">{{ q.author[0] }}</span>
+          <span class="quote-who"><strong>{{ q.author }}</strong><small>{{ q.role }}</small></span>
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section">
+  <div class="container narrow">
+    <span class="bars" aria-hidden="true"><i></i><i></i></span>
+    <h2>{{ t.faq_title }}</h2>
+    <p class="muted">{{ t.faq_intro }}</p>
+    <div class="faq-list">
+      {% for f in faq %}
+      <details class="faq-item"{% if loop.first %} open{% endif %}>
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
       {% endfor %}
     </div>
   </div>
