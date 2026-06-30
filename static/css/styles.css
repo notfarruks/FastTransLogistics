@@ -309,6 +309,10 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
   .section .muted { margin-bottom: 28px; }
   .stat { padding: 22px 14px; }
   .stat-ic { width: 40px; height: 40px; margin-bottom: 12px; }
+  /* stack flag over name so long country names never clip */
+  .country, .country-lg { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px 14px; }
+  .country-flag, .country-lg .country-flag { width: 46px; height: 32px; }
+  .country-name, .country-lg .country-name { font-size: .98rem; overflow-wrap: anywhere; }
   .field-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .cta-inner { flex-direction: column; align-items: flex-start; }
@@ -374,19 +378,13 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .hero{
   position:relative; isolation:isolate; border-bottom:0;
   background:
-    linear-gradient(115deg, rgba(8,10,35,.93) 0%, rgba(18,26,86,.84) 42%, rgba(140,18,30,.62) 100%),
+    linear-gradient(180deg, rgba(13,17,42,.90) 0%, rgba(13,17,42,.82) 100%),
     var(--indigo) url('/static/img/photos/hero.jpg') center/cover no-repeat;
-}
-.hero::after{
-  content:""; position:absolute; inset:0; z-index:-1;
-  background:
-    radial-gradient(620px 320px at 86% 18%, rgba(37,99,235,.40), transparent 62%),
-    radial-gradient(520px 280px at 8% 92%, rgba(225,29,42,.30), transparent 62%);
 }
 .hero-panel{ background:rgba(10,12,32,.55); backdrop-filter:blur(10px); border-color:rgba(255,255,255,.16); }
 
 /* ---------- STATS: vivid gradient band ---------- */
-.stats{ background:linear-gradient(120deg,var(--indigo) 0%, var(--indigo-2) 55%, #8c1220 100%); border:0; }
+.stats{ background:var(--indigo); border:0; }
 .stat{ border-right:1px solid rgba(255,255,255,.16); }
 .stat:last-child{ border-right:0; }
 .stat-num{ color:#fff !important; box-shadow:none !important; }
@@ -621,8 +619,7 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .panel-hl-ic{ flex:none; width:42px; height:42px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); }
 .panel-hl-ic .ic{ width:22px; height:22px; margin:0; color:#fff; }
 .panel-hl-text{ font-family:var(--font-head); font-weight:500; font-size:1.02rem; color:#fff; }
-.panel-hl:nth-child(odd) .panel-hl-ic{ box-shadow:0 6px 16px rgba(225,29,42,.35); }
-.panel-hl:nth-child(even) .panel-hl-ic{ box-shadow:0 6px 16px rgba(29,78,216,.40); }
+/* plain chips — no colored glow */
 
 /* ============================================================
    Accent icons — stats chips + subtle logo motion
@@ -634,8 +631,7 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
   backdrop-filter:blur(4px);
 }
 .stat-ic .ic{ width:25px; height:25px; margin:0; color:#fff; }
-.stat:nth-child(odd)  .stat-ic{ box-shadow:0 7px 20px rgba(225,29,42,.40); }
-.stat:nth-child(even) .stat-ic{ box-shadow:0 7px 20px rgba(29,78,216,.45); }
+/* plain stat chips — no colored glow */
 .stat{ transition:transform .2s ease; }
 .stat:hover{ transform:translateY(-4px); }
 .stat:hover .stat-ic{ background:rgba(255,255,255,.22); }
