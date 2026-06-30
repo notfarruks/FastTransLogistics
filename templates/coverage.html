@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_icons.html" import icon %}
 {% block title %}{{ company.name }} — {{ t.nav_coverage }}{% endblock %}
 
 {% block content %}
@@ -19,34 +20,58 @@
     <p class="muted">{{ t.map_intro }}</p>
 
     <div class="map-wrap">
-      <svg class="route-map" viewBox="0 0 1000 540" role="img"
+      <svg class="route-map" viewBox="0 0 1000 560" role="img"
            aria-label="{{ t.map_title }}" preserveAspectRatio="xMidYMid meet">
         <defs>
           <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
             <circle cx="2" cy="2" r="1.4" fill="rgba(29,78,216,.16)"/>
           </pattern>
         </defs>
-        <rect x="0" y="0" width="1000" height="540" fill="url(#dots)" rx="16"/>
+        <rect x="0" y="0" width="1000" height="560" fill="url(#dots)" rx="16"/>
 
-        <!-- routes (hub -> destinations) -->
-        <path class="route-path r-red"   d="M430,300 Q280,330 150,330"/>
-        <path class="route-path r-blue"  d="M430,300 Q360,160 300,95"/>
-        <path class="route-path r-amber" d="M430,300 Q560,150 660,110"/>
-        <path class="route-path r-green" d="M430,300 Q680,300 860,300"/>
+        <!-- reach rings around the Baku hub -->
+        <circle class="reach-ring" cx="580" cy="330" r="180"/>
+        <circle class="reach-ring" cx="580" cy="330" r="310"/>
+
+        <!-- corridors: hub -> destinations -->
+        <path id="rt-cn" class="route-path r-red"   d="M580,330 Q740,300 890,300"/>
+        <path id="rt-ru" class="route-path r-blue"  d="M580,330 Q600,210 560,110"/>
+        <path id="rt-eu" class="route-path r-amber" d="M580,330 Q360,250 120,235"/>
+        <path id="rt-tr" class="route-path r-green" d="M580,330 Q480,395 365,415"/>
+        <path id="rt-by" class="route-path r-blue"  d="M580,330 Q470,210 345,155"/>
+        <path id="rt-rs" class="route-path r-red"   d="M580,330 Q420,350 230,350"/>
+        <path id="rt-ge" class="route-path r-blue"  d="M580,330 Q525,300 470,290"/>
+
+        <!-- little trucks running the corridors -->
+        <circle class="route-dot d-red"   r="6"><animateMotion dur="3.6s" repeatCount="indefinite"><mpath href="#rt-cn"/></animateMotion></circle>
+        <circle class="route-dot d-blue"  r="6"><animateMotion dur="3.1s" repeatCount="indefinite"><mpath href="#rt-ru"/></animateMotion></circle>
+        <circle class="route-dot d-amber" r="6"><animateMotion dur="4.2s" repeatCount="indefinite"><mpath href="#rt-eu"/></animateMotion></circle>
+        <circle class="route-dot d-green" r="6"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#rt-tr"/></animateMotion></circle>
+        <circle class="route-dot d-blue"  r="6"><animateMotion dur="3.8s" repeatCount="indefinite"><mpath href="#rt-by"/></animateMotion></circle>
+        <circle class="route-dot d-red"   r="6"><animateMotion dur="4.0s" repeatCount="indefinite"><mpath href="#rt-rs"/></animateMotion></circle>
+        <circle class="route-dot d-blue"  r="6"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#rt-ge"/></animateMotion></circle>
 
         <!-- destination nodes -->
-        <g class="map-node"><circle cx="150" cy="330" r="7" class="n-red"/><text x="150" y="360">{{ countries[3].name }}</text></g>
-        <g class="map-node"><circle cx="300" cy="95"  r="7" class="n-blue"/><text x="300" y="78">{{ countries[5].name }}</text></g>
-        <g class="map-node"><circle cx="660" cy="110" r="7" class="n-amber"/><text x="660" y="93">{{ countries[2].name }}</text></g>
-        <g class="map-node"><circle cx="860" cy="300" r="7" class="n-green"/><text x="860" y="330">{{ countries[7].name }}</text></g>
+        <g class="map-node"><circle cx="890" cy="300" r="8" class="n-red"/><text x="890" y="282">{{ countries[7].name }}</text></g>
+        <g class="map-node"><circle cx="560" cy="110" r="8" class="n-blue"/><text x="560" y="92">{{ countries[2].name }}</text></g>
+        <g class="map-node"><circle cx="120" cy="235" r="8" class="n-amber"/><text x="120" y="217">{{ countries[5].name }}</text></g>
+        <g class="map-node"><circle cx="365" cy="415" r="8" class="n-green"/><text x="365" y="443">{{ countries[3].name }}</text></g>
+        <g class="map-node"><circle cx="345" cy="155" r="8" class="n-blue"/><text x="345" y="137">{{ countries[4].name }}</text></g>
+        <g class="map-node"><circle cx="230" cy="350" r="8" class="n-red"/><text x="230" y="378">{{ countries[6].name }}</text></g>
+        <g class="map-node"><circle cx="470" cy="290" r="7" class="n-blue"/><text x="455" y="274" style="text-anchor:end">{{ countries[1].name }}</text></g>
 
-        <!-- hub -->
+        <!-- hub: Baku -->
         <g class="map-hub">
-          <circle cx="430" cy="300" r="16" class="hub-ring"/>
-          <circle cx="430" cy="300" r="7" class="hub-dot"/>
-          <text x="430" y="340">{{ countries[0].name }}</text>
+          <circle cx="580" cy="330" r="16" class="hub-ring"/>
+          <circle cx="580" cy="330" r="9" class="hub-dot"/>
+          <text x="580" y="372">{{ countries[0].name }}</text>
         </g>
       </svg>
+
+      <div class="map-legend">
+        <span><i class="lg-hub"></i> {{ countries[0].name }}</span>
+        <span><i class="lg-route"></i> {{ t.coverage_directions }}</span>
+      </div>
     </div>
   </div>
 </section>

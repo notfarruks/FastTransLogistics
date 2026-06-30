@@ -568,10 +568,40 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .map-node circle{ stroke:#fff; stroke-width:3; }
 .n-red{ fill:var(--red); } .n-blue{ fill:var(--blue); } .n-amber{ fill:var(--amber); } .n-green{ fill:var(--green); }
 .map-node text, .map-hub text{ font-family:var(--font-head); font-weight:600; font-size:21px; fill:var(--ink); text-anchor:middle; }
-.hub-ring{ fill:none; stroke:var(--ink); stroke-width:3; transform-origin:430px 300px; animation:hubPulse 2.2s ease-out infinite; }
+.hub-ring{ fill:none; stroke:var(--ink); stroke-width:3; transform-origin:580px 330px; animation:hubPulse 2.2s ease-out infinite; }
 .hub-dot{ fill:var(--ink); }
-@keyframes hubPulse{ 0%{ r:16; opacity:.9; } 70%{ r:32; opacity:0; } 100%{ opacity:0; } }
+@keyframes hubPulse{ 0%{ r:16; opacity:.9; } 70%{ r:34; opacity:0; } 100%{ opacity:0; } }
 @media(prefers-reduced-motion:reduce){ .route-path,.hub-ring{ animation:none; } }
+
+/* richer map: reach rings, running trucks, legend */
+.reach-ring{ fill:none; stroke:rgba(29,78,216,.18); stroke-width:1.5; stroke-dasharray:3 9; }
+.route-dot{ filter:drop-shadow(0 1px 2px rgba(10,12,32,.3)); }
+.route-dot.d-red{ fill:var(--red); } .route-dot.d-blue{ fill:var(--blue); }
+.route-dot.d-amber{ fill:var(--amber); } .route-dot.d-green{ fill:var(--green); }
+.map-legend{ display:flex; gap:26px; flex-wrap:wrap; justify-content:center; padding:14px 10px 6px; }
+.map-legend span{ display:inline-flex; align-items:center; gap:9px; font-size:.85rem; color:var(--muted); font-weight:500; }
+.map-legend i{ display:inline-block; width:14px; height:14px; border-radius:50%; }
+.lg-hub{ background:var(--ink); }
+.lg-route{ width:24px !important; height:4px !important; border-radius:2px !important; background:linear-gradient(90deg,var(--red),var(--blue)); }
+
+/* contact: quick-contact method cards + info icons */
+.contact-methods{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.cmethod{ display:flex; align-items:center; gap:16px; padding:22px; background:#fff;
+  border:1px solid var(--border); border-radius:14px;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.cmethod:hover{ transform:translateY(-4px); box-shadow:0 14px 30px rgba(10,12,32,.10); border-color:#dbe1f7; }
+.cm-ic{ flex:none; width:52px; height:52px; border-radius:14px; display:inline-flex; align-items:center; justify-content:center; }
+.cm-ic .ic, .cm-ic svg{ width:26px; height:26px; margin:0; display:block; }
+.cm-red{ background:var(--tint-red); color:var(--red); }
+.cm-blue{ background:var(--tint-blue); color:var(--blue); }
+.cm-green{ background:#ecfdf5; color:var(--green); }
+.cm-text{ display:flex; flex-direction:column; min-width:0; }
+.cm-label{ font-size:.72rem; text-transform:uppercase; letter-spacing:.14em; color:var(--muted); }
+.cm-val{ font-family:var(--font-head); font-weight:600; font-size:1.02rem; color:var(--ink); margin-top:3px; overflow:hidden; text-overflow:ellipsis; }
+.info-label{ display:inline-flex; align-items:center; gap:8px; }
+.info-ic .ic{ width:16px; height:16px; margin:0; color:var(--blue); }
+.info-cert .info-ic .ic{ color:var(--red); }
+@media(max-width:760px){ .contact-methods{ grid-template-columns:1fr; } }
 
 /* ============================================================
    Accent icons — stats chips + subtle logo motion
