@@ -182,8 +182,10 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .link-arrow { color: var(--ink); font-weight: 600; font-size: .9rem; white-space: nowrap; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
 .link-arrow:hover { opacity: .6; }
 
-.page-head { padding: clamp(40px, 5vw, 64px) 0 clamp(18px, 2.5vw, 30px); background: var(--bg); border-bottom: 1px solid var(--border); }
-.page-head .lead { font-size: 1.18rem; color: var(--muted); margin-top: 18px; line-height: 1.65; }
+.page-head { padding: clamp(28px, 3.2vw, 40px) 0 clamp(14px, 2vw, 22px); background: var(--bg); border-bottom: 1px solid var(--border); }
+.page-head h1 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); margin-top: 6px; }
+.page-head .lead { font-size: 1.1rem; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+.page-head + .section { padding-top: clamp(28px, 3vw, 40px); }
 
 /* ----------------------------- grids & cards ----------------------------- */
 .grid { display: grid; gap: 0; }
