@@ -567,8 +567,8 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 @keyframes dashFlow{ to{ stroke-dashoffset:-44; } }
 .map-node circle{ stroke:#fff; stroke-width:3; }
 .n-red{ fill:var(--red); } .n-blue{ fill:var(--blue); } .n-amber{ fill:var(--amber); } .n-green{ fill:var(--green); }
-.map-node text, .map-hub text{ font-family:var(--font-head); font-weight:600; font-size:21px; fill:var(--ink); text-anchor:middle; }
-.hub-ring{ fill:none; stroke:var(--ink); stroke-width:3; transform-origin:580px 330px; animation:hubPulse 2.2s ease-out infinite; }
+.map-node text, .map-hub text{ font-family:var(--font-head); font-weight:700; font-size:20px; fill:var(--ink); text-anchor:middle; paint-order:stroke; stroke:#fff; stroke-width:4px; stroke-linejoin:round; }
+.hub-ring{ fill:none; stroke:var(--ink); stroke-width:3; transform-origin:550px 250px; animation:hubPulse 2.2s ease-out infinite; }
 .hub-dot{ fill:var(--ink); }
 @keyframes hubPulse{ 0%{ r:16; opacity:.9; } 70%{ r:34; opacity:0; } 100%{ opacity:0; } }
 @media(prefers-reduced-motion:reduce){ .route-path,.hub-ring{ animation:none; } }
@@ -602,6 +602,23 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .info-ic .ic{ width:16px; height:16px; margin:0; color:var(--blue); }
 .info-cert .info-ic .ic{ color:var(--red); }
 @media(max-width:760px){ .contact-methods{ grid-template-columns:1fr; } }
+
+/* contact: office location map */
+.map-embed{ margin-top:18px; border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow:0 14px 34px rgba(10,12,32,.10); }
+.map-embed iframe{ display:block; width:100%; height:400px; border:0; }
+.map-link{ display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-family:var(--font-head); font-weight:600; color:var(--blue); }
+.map-link .ic{ width:18px; height:18px; margin:0; color:var(--red); }
+.map-link:hover{ text-decoration:underline; }
+
+/* home hero: highlights panel */
+.panel-eyebrow{ display:block; font-size:.68rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--dark-muted); margin-bottom:4px; }
+.panel-hl{ display:flex; align-items:center; gap:14px; padding:15px 0; border-bottom:1px solid var(--dark-border); }
+.panel-hl:last-child{ border-bottom:0; }
+.panel-hl-ic{ flex:none; width:42px; height:42px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); }
+.panel-hl-ic .ic{ width:22px; height:22px; margin:0; color:#fff; }
+.panel-hl-text{ font-family:var(--font-head); font-weight:500; font-size:1.02rem; color:#fff; }
+.panel-hl:nth-child(odd) .panel-hl-ic{ box-shadow:0 6px 16px rgba(225,29,42,.35); }
+.panel-hl:nth-child(even) .panel-hl-ic{ box-shadow:0 6px 16px rgba(29,78,216,.40); }
 
 /* ============================================================
    Accent icons — stats chips + subtle logo motion

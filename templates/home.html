@@ -22,23 +22,13 @@
     </div>
 
     <aside class="hero-panel">
-      <div class="panel-row">
-        <span class="panel-label">{{ t.hero_badge }}</span>
-        <strong>{{ t.hero_cert.format(series=company.cert_series) }}</strong>
-        <small>{{ company.valid_from }} — {{ company.valid_until }}</small>
+      <span class="panel-eyebrow">{{ t.why_title }}</span>
+      {% for item in t.why_items %}
+      <div class="panel-hl">
+        <span class="panel-hl-ic">{{ icon(why_icons[loop.index0]) }}</span>
+        <span class="panel-hl-text">{{ item.title }}</span>
       </div>
-      <div class="panel-row">
-        <span class="panel-label">{{ t.contact_phone_label }}</span>
-        <a href="tel:{{ company.phone_href }}">{{ company.phone }}</a>
-      </div>
-      <div class="panel-row">
-        <span class="panel-label">{{ t.contact_email_label }}</span>
-        <a href="mailto:{{ company.email }}">{{ company.email }}</a>
-      </div>
-      <div class="panel-row">
-        <span class="panel-label">{{ t.contact_address_label }}</span>
-        <span>{{ t.contact_address }}</span>
-      </div>
+      {% endfor %}
     </aside>
   </div>
 </section>
