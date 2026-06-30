@@ -317,6 +317,21 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
   .footer-grid { grid-template-columns: 1fr; }
   .cta-inner { flex-direction: column; align-items: flex-start; }
   .route-track { max-width: 60px; }
+
+  /* keep the truck in frame on a narrow screen */
+  .hero::before { background-position: 70% 24%; }
+
+  /* partners: shorter tiles instead of huge boxes */
+  .partner-tile { min-height: 96px; padding: 16px; }
+  .partner-logo { max-height: 60px; }
+  .partner-name { font-size: .85rem; }
+
+  /* testimonials: tighter cards so they don't form a long list */
+  .quote-grid { gap: 12px; }
+  .quote-card { padding: 18px 18px 16px; gap: 10px; }
+  .quote-mark { font-size: 2rem; }
+  .quote-card blockquote { font-size: .94rem; line-height: 1.5; }
+  .quote-avatar { width: 36px; height: 36px; }
 }
 
 /* ============================================================
@@ -383,10 +398,12 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
   background:var(--indigo) url('/static/img/photos/hero.jpg') center/cover no-repeat;
   animation:heroDrive 28s ease-in-out infinite alternate;
 }
-/* dark overlay so the copy stays readable */
+/* overlay: dark on the left for text, clears on the right so the truck shows */
 .hero::after{
   content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(13,17,42,.90) 0%, rgba(13,17,42,.82) 100%);
+  background:
+    linear-gradient(90deg, rgba(13,17,42,.94) 0%, rgba(13,17,42,.82) 30%, rgba(13,17,42,.40) 62%, rgba(13,17,42,.22) 100%),
+    linear-gradient(180deg, rgba(13,17,42,.30) 0%, rgba(13,17,42,.10) 45%, rgba(13,17,42,.40) 100%);
 }
 @keyframes heroDrive{
   from{ transform:scale(1.05) translate3d(0,0,0); }
