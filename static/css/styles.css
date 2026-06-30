@@ -319,7 +319,7 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
   .route-track { max-width: 60px; }
 
   /* keep the truck in frame on a narrow screen */
-  .hero::before { background-position: 74% 18%; }
+  .hero::before { background-position: 70% 24%; }
   .hero-streak { display: none; }
 
   /* partners: shorter tiles instead of huge boxes */
@@ -402,7 +402,7 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 /* moving image layer — drone tracks the truck forward along the road */
 .hero::before{
   content:""; position:absolute; inset:-8%; z-index:-2; will-change:transform;
-  background:var(--indigo) url('/static/img/photos/hero.jpg') 56% 20%/cover no-repeat;
+  background:var(--indigo) url('/static/img/photos/hero.jpg') center/cover no-repeat;
   animation:heroDrive 16s ease-in-out infinite alternate;
 }
 /* overlay: dark on the left for text, clears toward the top-right so the truck pops */
@@ -414,8 +414,8 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 }
 /* light streak that races up the road to sell the speed */
 .hero-streak{
-  position:absolute; z-index:-1; top:-30%; left:48%; width:30%; height:170%;
-  transform:rotate(28deg); transform-origin:center;
+  position:absolute; z-index:-1; top:-30%; left:35%; width:34%; height:170%;
+  transform:rotate(31deg); transform-origin:center;
   background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.16) 45%, rgba(255,255,255,.34) 50%, rgba(255,255,255,.16) 55%, rgba(255,255,255,0) 100%);
   filter:blur(7px); mix-blend-mode:screen; pointer-events:none;
   animation:heroStreak 4.6s linear infinite;
@@ -425,10 +425,10 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
   100%{ transform:scale(1.16) translate3d(3%,-3%,0); }
 }
 @keyframes heroStreak{
-  0%{ transform:rotate(28deg) translateY(60%); opacity:0; }
+  0%{ transform:rotate(31deg) translateY(60%); opacity:0; }
   15%{ opacity:1; }
   85%{ opacity:1; }
-  100%{ transform:rotate(28deg) translateY(-60%); opacity:0; }
+  100%{ transform:rotate(31deg) translateY(-60%); opacity:0; }
 }
 @media (prefers-reduced-motion: reduce){
   .hero::before{ animation:none; transform:scale(1.05); }
