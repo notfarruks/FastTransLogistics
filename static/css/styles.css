@@ -572,3 +572,29 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .hub-dot{ fill:var(--ink); }
 @keyframes hubPulse{ 0%{ r:16; opacity:.9; } 70%{ r:32; opacity:0; } 100%{ opacity:0; } }
 @media(prefers-reduced-motion:reduce){ .route-path,.hub-ring{ animation:none; } }
+
+/* ============================================================
+   Accent icons — stats chips + subtle logo motion
+   ============================================================ */
+.stat-ic{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:48px; height:48px; border-radius:13px; margin-bottom:18px;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22);
+  backdrop-filter:blur(4px);
+}
+.stat-ic .ic{ width:25px; height:25px; margin:0; color:#fff; }
+.stat:nth-child(odd)  .stat-ic{ box-shadow:0 7px 20px rgba(225,29,42,.40); }
+.stat:nth-child(even) .stat-ic{ box-shadow:0 7px 20px rgba(29,78,216,.45); }
+.stat{ transition:transform .2s ease; }
+.stat:hover{ transform:translateY(-4px); }
+.stat:hover .stat-ic{ background:rgba(255,255,255,.22); }
+
+/* logo: streaks ease left on hover for a touch of motion */
+.brand-mark .fs-streak rect{ transition:transform .25s ease; }
+.brand:hover .fs-streak rect{ transform:translateX(-3px); }
+.brand-mark{ transition:transform .25s ease; }
+.brand:hover .brand-mark{ transform:translateX(2px); }
+
+@media(prefers-reduced-motion:reduce){
+  .stat,.stat-ic,.brand-mark,.brand-mark .fs-streak rect{ transition:none; }
+}

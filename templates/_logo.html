@@ -1,22 +1,23 @@
-{# Inline SVG symbol — redrawn line-art truck, monochrome, inherits currentColor. #}
+{# Inline SVG symbol — bold truck mark with brand red/blue. Inherits currentColor. #}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <symbol id="fs-logo" viewBox="0 0 162 80">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 60 V44 H26 L42 28 H60 V60 Z"/>
-        <rect x="58" y="24" width="96" height="36" rx="2"/>
-        <path d="M88 24 V60 M118 24 V60"/>
-        <path d="M44 30 L31 43 M50 30 V60"/>
-        <path d="M6 72 H156 M6 60 H10"/>
-        <circle cx="30" cy="64" r="8"/>
-        <circle cx="100" cy="64" r="8"/>
-        <circle cx="126" cy="64" r="8"/>
+      {# speed streaks — brand red + blue, pop on light or dark #}
+      <g class="fs-streak">
+        <rect x="2"  y="19" width="30" height="7" rx="3.5" fill="#e11d2a"/>
+        <rect x="10" y="36" width="24" height="7" rx="3.5" fill="#1d4ed8"/>
+        <rect x="2"  y="53" width="30" height="7" rx="3.5" fill="#e11d2a" opacity=".5"/>
       </g>
+      {# bold truck body — inherits currentColor (dark in header, white in footer) #}
       <g fill="currentColor">
-        <circle cx="30" cy="64" r="2.4"/>
-        <circle cx="100" cy="64" r="2.4"/>
-        <circle cx="126" cy="64" r="2.4"/>
+        <rect x="40" y="13" width="70" height="43" rx="5"/>
+        <path d="M110 25 h20 l18 17 v12 a2 2 0 0 1-2 2 h-36 z"/>
       </g>
+      {# wheels with brand-colored hubs #}
+      <circle cx="62" cy="62" r="10" fill="currentColor"/>
+      <circle cx="132" cy="62" r="10" fill="currentColor"/>
+      <circle cx="62" cy="62" r="3.6" fill="#e11d2a"/>
+      <circle cx="132" cy="62" r="3.6" fill="#1d4ed8"/>
     </symbol>
   </defs>
 </svg>

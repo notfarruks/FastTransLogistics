@@ -19,6 +19,14 @@
 <svg {{ common|safe }}><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.5 4v4.5H16"/></svg>
 {%- elif name == 'pin' -%}
 <svg {{ common|safe }}><path d="M12 21.5c4-4 6.5-7 6.5-10.5a6.5 6.5 0 0 0-13 0c0 3.5 2.5 6.5 6.5 10.5z"/><circle cx="12" cy="11" r="2.4"/></svg>
+{%- elif name == 'users' -%}
+<svg {{ common|safe }}><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 5.6"/><path d="M17.5 14.6A5.5 5.5 0 0 1 20.5 20"/></svg>
+{%- elif name == 'truck' -%}
+<svg {{ common|safe }}><path d="M2.5 6.5h10v9h-10z"/><path d="M12.5 9.5h4l3 3v3h-7z"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="16.5" cy="18" r="1.8"/></svg>
+{%- elif name == 'warehouse' -%}
+<svg {{ common|safe }}><path d="M3 20V8.5L12 4l9 4.5V20"/><path d="M3 20h18"/><rect x="8.5" y="12.5" width="7" height="7.5"/><path d="M8.5 16h7"/></svg>
+{%- elif name == 'building' -%}
+<svg {{ common|safe }}><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/><path d="M10 21v-3h4v3"/></svg>
 {%- else -%}
 <svg {{ common|safe }}><circle cx="12" cy="12" r="9.2"/></svg>
 {%- endif -%}
