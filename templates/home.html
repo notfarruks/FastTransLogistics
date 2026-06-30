@@ -3,7 +3,6 @@
 {% block title %}{{ company.name }} — {{ t.nav_home }}{% endblock %}
 
 {% block content %}
-{% set why_icons = ['bolt', 'check', 'link', 'route'] %}
 {% set country_iso = ['az', 'ge', 'ru', 'tr', 'by', 'eu', 'rs', 'cn'] %}
 {% set service_imgs = ['service-1.jpg', 'service-2.jpg', 'service-3.jpg', 'service-4.jpg'] %}
 {% set gallery_imgs = ['gallery-1.jpg', 'gallery-2.jpg', 'gallery-3.jpg', 'gallery-4.jpg', 'gallery-5.jpg', 'gallery-6.jpg'] %}
@@ -20,16 +19,6 @@
         <a class="btn btn-outline-light" href="{{ url_for('services') }}">{{ t.hero_cta_secondary }}</a>
       </div>
     </div>
-
-    <aside class="hero-panel">
-      <span class="panel-eyebrow">{{ t.why_title }}</span>
-      {% for item in t.why_items %}
-      <div class="panel-hl">
-        <span class="panel-hl-ic">{{ icon(why_icons[loop.index0]) }}</span>
-        <span class="panel-hl-text">{{ item.title }}</span>
-      </div>
-      {% endfor %}
-    </aside>
   </div>
 </section>
 
@@ -51,23 +40,6 @@
     <span class="bars" aria-hidden="true"><i></i><i></i></span><span class="eyebrow">{{ t.about_title }}</span>
     <h2>{{ t.about_title }}</h2>
     <p class="muted" style="margin: 24px auto 0;">{{ t.about_text }}</p>
-  </div>
-</section>
-
-<!-- ============================ WHY US ============================ -->
-<section class="section section-alt">
-  <div class="container">
-    <span class="bars" aria-hidden="true"><i></i><i></i></span>
-    <h2 style="margin-bottom: 48px;">{{ t.why_title }}</h2>
-    <div class="grid grid-4">
-      {% for item in t.why_items %}
-      <div class="card why-card">
-        {{ icon(why_icons[loop.index0]) }}
-        <h3>{{ item.title }}</h3>
-        <p class="muted">{{ item.text }}</p>
-      </div>
-      {% endfor %}
-    </div>
   </div>
 </section>
 
