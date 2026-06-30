@@ -174,15 +174,15 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 .stat-label { display: block; margin-top: 12px; color: var(--muted); font-size: .86rem; }
 
 /* ----------------------------- sections ----------------------------- */
-.section { padding: clamp(56px, 8vw, 104px) 0; }
+.section { padding: clamp(40px, 5vw, 72px) 0; }
 .section-alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
-.section .muted { margin-bottom: 48px; max-width: 600px; font-size: 1.02rem; }
+.section .muted { margin-bottom: 32px; max-width: 600px; font-size: 1.02rem; }
 .section-head + .muted { margin-top: 8px; }
 .link-arrow { color: var(--ink); font-weight: 600; font-size: .9rem; white-space: nowrap; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
 .link-arrow:hover { opacity: .6; }
 
-.page-head { padding: clamp(64px, 9vw, 120px) 0 clamp(24px, 4vw, 48px); background: var(--bg); border-bottom: 1px solid var(--border); }
+.page-head { padding: clamp(40px, 5vw, 64px) 0 clamp(18px, 2.5vw, 30px); background: var(--bg); border-bottom: 1px solid var(--border); }
 .page-head .lead { font-size: 1.18rem; color: var(--muted); margin-top: 18px; line-height: 1.65; }
 
 /* ----------------------------- grids & cards ----------------------------- */
