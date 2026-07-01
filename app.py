@@ -15,6 +15,7 @@ from flask import (
     redirect,
     render_template,
     request,
+    session,
     url_for,
 )
 
@@ -30,8 +31,39 @@ from content import (
 )
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY", "fs-logistics-3465-secret")
 
 DEFAULT_LANG = "az"
+
+# --- Simple site-wide password gate -------------------------------------
+# Password can be overridden with the SITE_PASSWORD env var on Railway.
+SITE_PASSWORD = os.environ.get("SITE_PASSWORD", "3465")
+# Endpoints reachable without unlocking (login page, static files, health check).
+GATE_EXEMPT = {"gate", "static", "healthz"}
+
+
+@app.before_request
+def require_password():
+    if session.get("unlocked"):
+        return None
+    if request.endpoint in GATE_EXEMPT:
+        return None
+    # Remember where the visitor was heading, then send them to the gate.
+    nxt = request.full_path if request.query_string else request.path
+    return redirect(url_for("gate", next=nxt))
+
+
+@app.route("/gate", methods=["GET", "POST"])
+def gate():
+    error = False
+    nxt = request.values.get("next") or url_for("home")
+    if request.method == "POST":
+        if request.form.get("password", "") == SITE_PASSWORD:
+            session.permanent = True
+            session["unlocked"] = True
+            return redirect(nxt)
+        error = True
+    return render_template("gate.html", error=error, next=nxt)
 
 
 def current_lang():
