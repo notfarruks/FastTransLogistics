@@ -113,7 +113,8 @@ h3 { font-size: 1.2rem; letter-spacing: -0.01em; }
 }
 .nav-bar { display: flex; align-items: center; gap: 20px; height: 72px; }
 .brand { display: flex; align-items: center; gap: 11px; color: var(--ink); }
-.brand-mark { flex: none; color: inherit; }
+.brand-mark { flex: none; height: 40px; width: auto; display: block; }
+.site-footer .brand-mark { height: 46px; }
 .brand-name { font-family: var(--font-head); font-weight: 600; font-size: 1.02rem; line-height: 1.05; letter-spacing: -0.01em; display: flex; flex-direction: column; }
 .brand-name-sub { font-family: var(--font-body); font-size: .62rem; font-weight: 600; color: var(--muted); letter-spacing: .24em; text-transform: uppercase; margin-top: 3px; }
 
